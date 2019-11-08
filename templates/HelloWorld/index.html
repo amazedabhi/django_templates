@@ -2,16 +2,21 @@
 
 
 {% block body %}
-<h1>Hello World !</h1>
-<ul>
-    {% for friend in friends %}
-        <li class="{% cycle 'bold' '' %}">{{ friend }}</li>
-    {% endfor %}
-</ul>
+{% include 'Helloworld/navbar.html'%}
+<div class="container">
+    <h1>Hello World !</h1>
+    <ul class="collection">
+        {% for friend in friends %}
+            <li class="{% cycle 'bold' '' %} collection-item">{{ friend }}</li>
+        {% endfor %}
+    </ul>
+    
+    {%if show_friends %}
+        <span>Developed By: {{ developer }}</span>
+    {% endif %}
+    
 
-{%if show_friends %}
-    <span>Developed By: {{ developer }}</span>
-{% endif %}
+</div>
 
 
 {% endblock %}
